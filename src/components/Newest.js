@@ -3,8 +3,8 @@ import withNews from '../hoc/withNews';
 import './News.css';
 
 const Newest = (props) => {
-  const { news, newestPage, newestIndex } = props;
-  const renderIndex = newestPage.map(number => (
+  const { news, newsPage, newestIndex } = props;
+  const renderIndex = newsPage.map(number => (
     <button onClick={() => newestIndex(number)} type="submit">{number}</button>
   ));
   const renderNews = news.map((item, index) => (
@@ -17,8 +17,18 @@ const Newest = (props) => {
         </th>
         <td>
           <div className="news-header">
-            <p>{item.title}</p>
-            <small><a href={item.url}>{item.domain}</a></small>
+            <p>
+              <a className="news-title" href={item.url}>
+                {item.title}
+              </a>
+              <span>
+                <small>
+                  <a href={item.url} className="news-url">
+                    {item.domain}
+                  </a>
+                </small>
+              </span>
+            </p>
           </div>
           <div className="news-body">
             <small>

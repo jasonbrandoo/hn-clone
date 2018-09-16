@@ -10,14 +10,27 @@
 }
 
 .news-header {
-  display: -webkit-inline-box;
   font-size: 14px;
 }
 
-.news-header a {
+.news-header .news-title {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
+
+.news-url {
   margin-left: 5px;
   text-decoration: none;
   color: rgb(65, 65, 65);
+}
+
+.ask-header {
+  font-size: 14px;
+}
+
+.ask-header a {
+  text-decoration: none;
+  color: rgb(0, 0, 0);
 }
 
 .news-body {
@@ -25,16 +38,53 @@
   font-size: 12px;
 }
 
-.news-index {
+.item-body {
+  font-size: 14px;
+}
+
+.item-info {
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.comment-container {
+  background-color: rgb(165, 165, 165);
+  margin: 10px 0;
   padding: 5px;
-  width: 150px;
+  line-height: 2;
+}
+
+.comment-info {
+  font-size: 12px;
+}
+
+.comment-body {
+  font-size: 14px;
+}
+
+.news-index {
+  width: 180px;
   margin: 0 auto;
+}
+
+.news-index button {
+  background-color: inherit;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .newest-index {
   padding: 5px;
-  width: 170px;
+  width: 250px;
   margin: 0 auto;
+}
+
+.newest-index button {
+  background-color: inherit;
+  border: none;
+  margin: 5px;
+  cursor: pointer;
 }
 
 .news-loading {

@@ -1,13 +1,14 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import withNews from '../hoc/withNews';
 import './News.css';
 
-const News = (props) => {
-  const { news, newsPage, newsIndex } = props;
-  const renderIndex = newsPage.map(number => (
-    <button onClick={() => newsIndex(number)} type="submit">{number}</button>
+const Ask = (props) => {
+  const { ask, askPage, askIndex } = props;
+  const renderIndex = askPage.map(number => (
+    <button onClick={() => askIndex(number)} type="submit">{number}</button>
   ));
-  const renderNews = news.map((item, index) => (
+  const renderAsk = ask.map((item, index) => (
     <React.Fragment key={item.id}>
       <tr>
         <th>
@@ -16,18 +17,11 @@ const News = (props) => {
           </div>
         </th>
         <td>
-          <div className="news-header">
+          <div className="ask-header">
             <p>
-              <a className="news-title" href={item.url}>
+              <NavLink to={`/${item.id}`}>
                 {item.title}
-              </a>
-              <span>
-                <small>
-                  <a href={item.url} className="news-url">
-                    {item.domain}
-                  </a>
-                </small>
-              </span>
+              </NavLink>
             </p>
           </div>
           <div className="news-body">
@@ -54,7 +48,7 @@ const News = (props) => {
     </React.Fragment>
   ));
 
-  if (news.length === 0) {
+  if (ask.length === 0) {
     return (
       <div className="news-loading" />
     );
@@ -62,7 +56,7 @@ const News = (props) => {
     <div className="news-container">
       <table>
         <tbody>
-          {renderNews}
+          {renderAsk}
         </tbody>
       </table>
       <div className="news-index">
@@ -72,4 +66,4 @@ const News = (props) => {
   );
 };
 
-export default withNews(News);
+export default withNews(Ask);
