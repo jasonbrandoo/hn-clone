@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SingleItem from '../components/SingleItem';
+import SingleItem from '../components/content/SingleItem';
 
 class ItemContainer extends Component {
   constructor(props) {
@@ -25,9 +25,7 @@ class ItemContainer extends Component {
   render() {
     const { item } = this.state;
     return (
-      <React.Fragment>
-        <SingleItem item={item} />
-      </React.Fragment>
+      <SingleItem item={item} />
     );
   }
 }

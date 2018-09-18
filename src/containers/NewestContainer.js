@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Newest from '../components/Newest';
+import Newest from '../components/content/Newest';
 
 class NewestContainer extends Component {
   constructor() {

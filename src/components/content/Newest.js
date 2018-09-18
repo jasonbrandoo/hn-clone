@@ -1,27 +1,30 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-import withNews from '../hoc/withNews';
-import './News.css';
+import withPage from '../../hoc/withPage';
+import './Content.css';
 
-const Ask = (props) => {
-  const { ask, askPage, askIndex } = props;
-  const renderIndex = askPage.map(number => (
-    <button onClick={() => askIndex(number)} type="submit">{number}</button>
+const Newest = (props) => {
+  const { news, newsPage, newestIndex } = props;
+  const renderIndex = newsPage.map(number => (
+    <React.Fragment key={number}>
+      <button onClick={() => newestIndex(number)} type="submit">{number}</button>
+    </React.Fragment>
   ));
-  const renderAsk = ask.map((item, index) => (
+  const renderNews = news.map(item => (
     <React.Fragment key={item.id}>
       <tr>
-        <th>
-          <div className="news-number">
-            {index += 1}
-          </div>
-        </th>
         <td>
-          <div className="ask-header">
+          <div className="news-header">
             <p>
-              <NavLink to={`/${item.id}`}>
+              <a className="news-title" href={item.url}>
                 {item.title}
-              </NavLink>
+              </a>
+              <span>
+                <small>
+                  <a href={item.url} className="news-url">
+                    {item.domain}
+                  </a>
+                </small>
+              </span>
             </p>
           </div>
           <div className="news-body">
@@ -48,7 +51,7 @@ const Ask = (props) => {
     </React.Fragment>
   ));
 
-  if (ask.length === 0) {
+  if (news.length === 0) {
     return (
       <div className="news-loading" />
     );
@@ -56,14 +59,14 @@ const Ask = (props) => {
     <div className="news-container">
       <table>
         <tbody>
-          {renderAsk}
+          {renderNews}
         </tbody>
       </table>
-      <div className="news-index">
+      <div className="newest-index">
         {renderIndex}
       </div>
     </div>
   );
 };
 
-export default withNews(Ask);
+export default withPage(Newest);

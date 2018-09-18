@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Ask from '../components/Ask';
+import Ask from '../components/content/Ask';
 
 class AskContainer extends Component {
   constructor() {

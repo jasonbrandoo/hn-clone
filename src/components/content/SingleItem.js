@@ -1,7 +1,7 @@
 import React from 'react';
-import './News.css';
+import './Content.css';
 
-const Newest = (props) => {
+const SingelItem = (props) => {
   const { item } = props;
   console.log(item);
   const renderItem = item.map((data) => {
@@ -46,4 +46,4 @@ const Newest = (props) => {
   );
 };
 
-export default Newest;
+export default SingelItem;

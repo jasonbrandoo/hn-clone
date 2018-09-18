@@ -1,20 +1,17 @@
 import React from 'react';
-import withNews from '../hoc/withNews';
-import './News.css';
+import withPage from '../../hoc/withPage';
+import './Content.css';
 
-const Newest = (props) => {
-  const { news, newsPage, newestIndex } = props;
-  const renderIndex = newsPage.map(number => (
-    <button onClick={() => newestIndex(number)} type="submit">{number}</button>
+const Show = (props) => {
+  const { show, showPage, showIndex } = props;
+  const renderIndex = showPage.map(number => (
+    <React.Fragment key={number}>
+      <button onClick={() => showIndex(number)} type="submit">{number}</button>
+    </React.Fragment>
   ));
-  const renderNews = news.map((item, index) => (
+  const renderNews = show.map(item => (
     <React.Fragment key={item.id}>
       <tr>
-        <th>
-          <div className="news-number">
-            {index += 1}
-          </div>
-        </th>
         <td>
           <div className="news-header">
             <p>
@@ -54,7 +51,7 @@ const Newest = (props) => {
     </React.Fragment>
   ));
 
-  if (news.length === 0) {
+  if (show.length === 0) {
     return (
       <div className="news-loading" />
     );
@@ -65,11 +62,11 @@ const Newest = (props) => {
           {renderNews}
         </tbody>
       </table>
-      <div className="newest-index">
+      <div className="news-index">
         {renderIndex}
       </div>
     </div>
   );
 };
 
-export default withNews(Newest);
+export default withPage(Show);
