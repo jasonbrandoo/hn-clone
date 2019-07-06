@@ -1,10 +1,13 @@
 {
-    "parser": "babel-eslint",
-    "extends": "airbnb",
-    "rules": {
-      "react/jsx-filename-extension": "off",
-      "no-return-assign": "off",
-      "no-undef": "warn",
-      "no-console": "off"
-    }
+  "env": { "browser": true, "node": true },
+  "parser": "babel-eslint",
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "react/jsx-filename-extension": "off",
+    "no-return-assign": "off",
+    "no-undef": "warn",
+    "no-console": "off",
+    "prettier/prettier": "error"
+  }
 }
