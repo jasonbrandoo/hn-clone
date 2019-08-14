@@ -1,7 +1,6 @@
 import React from 'react';
-import './Content.css';
 
-const Jobs = (props) => {
+const Jobs = props => {
   const { jobs } = props;
   const renderNews = jobs.map(item => (
     <React.Fragment key={item.id}>
@@ -22,9 +21,7 @@ const Jobs = (props) => {
             </p>
           </div>
           <div className="news-body">
-            <small>
-              {item.time_ago}
-            </small>
+            <small>{item.time_ago}</small>
           </div>
         </td>
       </tr>
@@ -32,15 +29,12 @@ const Jobs = (props) => {
   ));
 
   if (jobs.length === 0) {
-    return (
-      <div className="news-loading" />
-    );
-  } return (
+    return <div className="news-loading" />;
+  }
+  return (
     <div className="news-container">
       <table>
-        <tbody>
-          {renderNews}
-        </tbody>
+        <tbody>{renderNews}</tbody>
       </table>
     </div>
   );

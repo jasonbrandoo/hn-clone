@@ -1,13 +1,14 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import withPage from '../../hoc/withPage';
-import './Content.css';
 
-const Ask = (props) => {
+const Ask = props => {
   const { ask, askPage, askIndex } = props;
   const renderIndex = askPage.map(number => (
     <React.Fragment key={number}>
-      <button onClick={() => askIndex(number)} type="submit">{number}</button>
+      <button onClick={() => askIndex(number)} type="submit">
+        {number}
+      </button>
     </React.Fragment>
   ));
   const renderAsk = ask.map(item => (
@@ -16,29 +17,27 @@ const Ask = (props) => {
         <td>
           <div className="ask-header">
             <p>
-              <NavLink to={`/ask/${item.id}`}>
-                {item.title}
-              </NavLink>
+              <NavLink to={`/ask/${item.id}`}>{item.title}</NavLink>
             </p>
           </div>
           <div className="news-body">
             <small>
-              {item.time_ago}
-              {' '}
-              |
-              {' '}
-            </small>
+{item.time_ago}
+{' '}
+|
+{' '}
+</small>
             <small>
-              {item.user}
-              {' '}
-              |
-              {' '}
-            </small>
+{item.user}
+{' '}
+|
+{' '}
+</small>
             <small>
-              {item.points}
-              {' '}
-              Points
-            </small>
+{item.points}
+{' '}
+Points
+</small>
           </div>
         </td>
       </tr>
@@ -46,19 +45,14 @@ const Ask = (props) => {
   ));
 
   if (ask.length === 0) {
-    return (
-      <div className="news-loading" />
-    );
-  } return (
+    return <div className="news-loading" />;
+  }
+  return (
     <div className="news-container">
       <table>
-        <tbody>
-          {renderAsk}
-        </tbody>
+        <tbody>{renderAsk}</tbody>
       </table>
-      <div className="news-index">
-        {renderIndex}
-      </div>
+      <div className="news-index">{renderIndex}</div>
     </div>
   );
 };

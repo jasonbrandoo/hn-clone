@@ -1,12 +1,13 @@
 import React from 'react';
 import withPage from '../../hoc/withPage';
-import './Content.css';
 
-const Show = (props) => {
+const Show = props => {
   const { show, showPage, showIndex } = props;
   const renderIndex = showPage.map(number => (
     <React.Fragment key={number}>
-      <button onClick={() => showIndex(number)} type="submit">{number}</button>
+      <button onClick={() => showIndex(number)} type="submit">
+        {number}
+      </button>
     </React.Fragment>
   ));
   const renderNews = show.map(item => (
@@ -29,22 +30,22 @@ const Show = (props) => {
           </div>
           <div className="news-body">
             <small>
-              {item.time_ago}
-              {' '}
-              |
-              {' '}
-            </small>
+{item.time_ago}
+{' '}
+|
+{' '}
+</small>
             <small>
-              {item.user}
-              {' '}
-              |
-              {' '}
-            </small>
+{item.user}
+{' '}
+|
+{' '}
+</small>
             <small>
-              {item.points}
-              {' '}
-              Points
-            </small>
+{item.points}
+{' '}
+Points
+</small>
           </div>
         </td>
       </tr>
@@ -52,19 +53,14 @@ const Show = (props) => {
   ));
 
   if (show.length === 0) {
-    return (
-      <div className="news-loading" />
-    );
-  } return (
+    return <div className="news-loading" />;
+  }
+  return (
     <div className="news-container">
       <table>
-        <tbody>
-          {renderNews}
-        </tbody>
+        <tbody>{renderNews}</tbody>
       </table>
-      <div className="news-index">
-        {renderIndex}
-      </div>
+      <div className="news-index">{renderIndex}</div>
     </div>
   );
 };

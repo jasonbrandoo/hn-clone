@@ -7,12 +7,11 @@ import AskContainer from '../containers/AskContainer';
 import ItemContainer from '../containers/ItemContainer';
 import ShowContainer from '../containers/ShowContainer';
 import JobsContainer from '../containers/JobsContainer';
-import './App.css';
 
 const App = () => (
   <BrowserRouter>
     <React.Fragment>
-      <div className="container">
+      <div className="ma4">
         <Navbar />
         <Route exact path="/" component={NewsContainer} />
         <Switch>

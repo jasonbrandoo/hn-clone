@@ -1,12 +1,13 @@
 import React from 'react';
 import withPage from '../../hoc/withPage';
-import './Content.css';
 
-const News = (props) => {
+const News = props => {
   const { news, newsPage, newsIndex } = props;
   const renderIndex = newsPage.map(number => (
     <React.Fragment key={number}>
-      <button onClick={() => newsIndex(number)} type="submit">{number}</button>
+      <button onClick={() => newsIndex(number)} type="submit">
+        {number}
+      </button>
     </React.Fragment>
   ));
   const renderNews = news.map(item => (
@@ -28,22 +29,11 @@ const News = (props) => {
             </p>
           </div>
           <div className="news-body">
-            <small>
-              {item.time_ago}
-              {' '}
-              |
-              {' '}
-            </small>
-            <small>
-              {item.user}
-              {' '}
-              |
-              {' '}
-            </small>
+            <small>{item.time_ago}</small>
+            <small>{item.user}</small>
             <small>
               {item.points}
-              {' '}
-              Points
+              <span>Point</span>
             </small>
           </div>
         </td>
@@ -52,19 +42,14 @@ const News = (props) => {
   ));
 
   if (news.length === 0) {
-    return (
-      <div className="news-loading" />
-    );
-  } return (
+    return <div className="news-loading" />;
+  }
+  return (
     <div className="news-container">
       <table>
-        <tbody>
-          {renderNews}
-        </tbody>
+        <tbody>{renderNews}</tbody>
       </table>
-      <div className="news-index">
-        {renderIndex}
-      </div>
+      <div className="news-index">{renderIndex}</div>
     </div>
   );
 };

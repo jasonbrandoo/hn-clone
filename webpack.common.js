@@ -25,9 +25,6 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-            options: {
-              url: false,
-            },
           },
         ],
       },
@@ -36,7 +33,6 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
-      title: 'Production',
       template: './public/index.html',
     }),
   ],

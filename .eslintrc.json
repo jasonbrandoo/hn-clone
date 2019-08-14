@@ -4,10 +4,10 @@
   "extends": ["airbnb", "prettier"],
   "plugins": ["prettier"],
   "rules": {
+    "prettier/prettier": "error",
     "react/jsx-filename-extension": "off",
     "no-return-assign": "off",
     "no-undef": "warn",
-    "no-console": "off",
-    "prettier/prettier": "error"
+    "no-console": "off"
   }
 }

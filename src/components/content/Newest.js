@@ -1,12 +1,13 @@
 import React from 'react';
 import withPage from '../../hoc/withPage';
-import './Content.css';
 
-const Newest = (props) => {
+const Newest = props => {
   const { news, newsPage, newestIndex } = props;
   const renderIndex = newsPage.map(number => (
     <React.Fragment key={number}>
-      <button onClick={() => newestIndex(number)} type="submit">{number}</button>
+      <button onClick={() => newestIndex(number)} type="submit">
+        {number}
+      </button>
     </React.Fragment>
   ));
   const renderNews = news.map(item => (
@@ -29,22 +30,22 @@ const Newest = (props) => {
           </div>
           <div className="news-body">
             <small>
-              {item.time_ago}
-              {' '}
-              |
-              {' '}
-            </small>
+{item.time_ago}
+{' '}
+|
+{' '}
+</small>
             <small>
-              {item.user}
-              {' '}
-              |
-              {' '}
-            </small>
+{item.user}
+{' '}
+|
+{' '}
+</small>
             <small>
-              {item.points}
-              {' '}
-              Points
-            </small>
+{item.points}
+{' '}
+Points
+</small>
           </div>
         </td>
       </tr>
@@ -52,19 +53,14 @@ const Newest = (props) => {
   ));
 
   if (news.length === 0) {
-    return (
-      <div className="news-loading" />
-    );
-  } return (
+    return <div className="news-loading" />;
+  }
+  return (
     <div className="news-container">
       <table>
-        <tbody>
-          {renderNews}
-        </tbody>
+        <tbody>{renderNews}</tbody>
       </table>
-      <div className="newest-index">
-        {renderIndex}
-      </div>
+      <div className="newest-index">{renderIndex}</div>
     </div>
   );
 };
